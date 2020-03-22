@@ -1,31 +1,716 @@
----
-layout: null
-nav_exclude: true
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>Chad's Occasional Blog</title>
+    <description>Sometimes things pop into my head. This is where I put them.</description>
+    <link>/chadtest.github.io/</link>
+    <atom:link href="/chadtest.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 22 Mar 2020 16:37:57 -0700</pubDate>
+    <lastBuildDate>Sun, 22 Mar 2020 16:37:57 -0700</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>White lights what?</title>
+        <description>&lt;p&gt;As Richard Masoner / @cyclelicious &lt;a href=&quot;http://www.cyclelicio.us/2014/california-bill-to-require-rear-facing-flashing-white-lights-for-bikes/&quot;&gt;pointed out 
+today&lt;/a&gt;, 
+CA assembly member &lt;a href=&quot;http://www.kansenchu.com/&quot;&gt;Kansen Chu&lt;/a&gt; (who represents 
+Alviso, Berryessa, Milpitas, Newark, North San Jose, Santa Clara, and South 
+Fremont) introduced a really misguided bill, 
+&lt;a href=&quot;https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201520160AB28&quot;&gt;AB-28&lt;/a&gt;, 
+which might go up for vote in early 2015. Below is my attempt at educating the 
+assemblyman and his staff, posted via the really quite convenient “comments to 
+author” tab in the legislative information website:&lt;/p&gt;
+
+&lt;p&gt;Assembly member Chu:&lt;/p&gt;
+
+&lt;p&gt;Specifying a &lt;em&gt;white&lt;/em&gt; tail light flies in the face of every convention, and would spell disaster for innumerable law-abiding cyclists. Red tail lights and reflectors have long been the standard, on automobiles, motorcycles, and bicycles, and in the case of bicycles, the available lighting products reflect this standardization.  Rear-facing lights are generally not available in white; likewise, forward-facing lights are not available in red.&lt;/p&gt;
+
+&lt;p&gt;Furthermore, drivers and pedestrians are trained to recognize white lights as oncoming traffic; red lights are traffic moving in the same direction (or: emergency vehicles.) By switching the sense of the colors, in one specific instance but leaving all others unchanged, the intent of this bill (increased visibility and safety of bicyclists) will directly be subverted, resulting in confusion, delay, danger, and in all likelihood injuries and deaths.&lt;/p&gt;
+
+&lt;p&gt;In my long experience as a motorist (heavy vehicles, emergency vehicles, automobiles, and motorcycles) as well as a bicyclist who typically rides 5,000 miles per year, added lights beyond the required reflectors will not substantially help bicyclists. Their injuries and deaths are attributable to two factors: in a minority of cases, stupid behavior on the part of the bicyclist (e.g. riding on the wrong side of the street, at night, in dark clothes, without lights or reflectors) and in a vast majority of cases, inattentive or distracted drivers.&lt;/p&gt;
+
+&lt;p&gt;Attempting to address a problem that predominantly originates with automobile drivers by levying requirements (and ill-conceived ones, at that) on the bicyclists that are ostensibly the at-risk road users is logically flawed. I respectfully request you and your staff reconsider the implications of this bill, and whether it should be be put forward at all; I strongly believe it will do far more harm than good.&lt;/p&gt;
+
+&lt;p&gt;Sincerely,&lt;/p&gt;
+
+&lt;p&gt;Chad&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Dec 2014 17:42:00 -0800</pubDate>
+        <link>/chadtest.github.io/articles/14/comment</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/14/comment</guid>
+        
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Raspberry Pi fun and games</title>
+        <description>&lt;p&gt;While I continue to find good uses for Arduinos and such small 
+microcontrollers, lately I’ve been playing around quite a bit with the 
+Raspberry Pi. I got one last year, and fairly quickly set it up to be my 
+surrogate Dropbox, using BTSync. It has been happily chugging along in that 
+role ever since, connected to a small 100GB hard drive and living on my 
+workbench in the garage. 
+&lt;!--more--&gt;
+I also picked up a Pi at work, to drive a slideshow on a big screen in our 
+lobby, and at trade shows and conferences. That’s worked quite well, using 
+‘fbi’ as a lightweight image display tool – the Pi boots up, and immediately 
+looks for a slideshow directory on a USB stick from which to display a 
+sequence of images. For a recent conference, I added an open WiFi network that 
+served up PDFs of our organization’s papers – anyone could connect to the 
+network, and immediately download our papers, on the spot.&lt;/p&gt;
+
+&lt;p&gt;The latest distribution of Raspbian (the most common variety of OS for the Pi) 
+includes Wolfram’s “language” and Mathematica – which are great tools, but 
+not inexpensive for the desktop versions. I thought it would be interesting to 
+see how they run on the Pi, and set out to do an installation. I promptly ran 
+into my need for a decent HDMI-driven display; the HDTV we have is an older 
+CRT, progressive-scan model, and the image quality for computers is poor. I 
+have a couple VGA and DVI monitors, but the HDMI-VGA converter I bought for 
+the Pi doesn’t play well with the monitor, and I don’t have an HDMI-DVI 
+converter. That leaves me stuck with the TV, which makes me squint and guess 
+at what’s on the screen.&lt;/p&gt;
+
+&lt;p&gt;Add to that, the only keyboards I have around that have actual USB cables on 
+them, have assorted non-functioning keys, as I discovered in the course of 
+trying to use them to configure the Pi. Said keyboards are now in the pile 
+destined for electronics recycling…&lt;/p&gt;
+
+&lt;p&gt;I did eventually get things working, but found Mathematica’s UI to be a bit 
+too slow when running on the Pi. I’ll have to go back and try it on the 
+command line for comparison.&lt;/p&gt;
+
+&lt;p&gt;That exercise led me to want some indication of what the Pi thought its IP 
+address was, post-boot. It’s hard to connect to something being recalcitrant 
+on the network, without any idea of its address. Adafruit has a nice 
+step-by-step for adding a 16x2 display, and I happened to have all the parts 
+on hand, so I started breadboarding it. However - there are some software 
+installations needed on the Pi, and in the present configuration I could 
+&lt;em&gt;connect&lt;/em&gt; to the Pi, but it wasn’t on the Web.&lt;/p&gt;
+
+&lt;p&gt;Which led to figuring out how to share the wifi connection from my dev laptop 
+(10+ years old, Pentium 4, running #! slowly but adequately) to the Pi over 
+ethernet…. This turns out to be ridiculously easy on the Linux side, but 
+requires the Pi to be set up with a static IP on boot in order to “just work”, 
+at least the way I went about it. But: success! I can plug the Pi into an 
+ethernet cable, plug that into the laptop, and log into the Pi - which can now 
+see the web, so I can easily install software onto it.&lt;/p&gt;
+
+&lt;p&gt;So, having downloaded and installed a plethora of software libraries on the 
+Pi, I could finally try making something display on the LCD. Since the 
+&lt;a href=&quot;https://learn.adafruit.com/downloads/pdf/drive-a-16x2-lcd-directly-with-a-raspberry-pi.pdf&quot;&gt;Adafruit 
+tutorial&lt;/a&gt; 
+was written, though, their &lt;a href=&quot;https://github.com/adafruit/Adafruit_Python_CharLCD&quot;&gt;library 
+code&lt;/a&gt; has changed; the 
+wiring described in the tutorial doesn’t work with the current examples 
+packaged with the library, so the LCD shows signs of life, but never actually 
+does anything useful unless you get the wiring sorted. I eventually figured 
+this out, and now have it all happily working - the LCD displays time &amp;amp; IP 
+address, updated every 2 sec. Hoorah!&lt;/p&gt;
+
+&lt;p&gt;For future reference, and in case anyone stumbles across this post having run 
+into the same issue, the correct connections between the LCD and Pi are (for a 
+Pi model B):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;LCD pin 4 = Register Select = lcd_rs = GPIO pin 27 
+LCD pin 5 = Read/Write = ground (so we don't inadvertently put 5V into the Pi's GPIO!) 
+LCD pin 6 = Enable = lcd_en = GPIO pin 22 
+LCD pin 11 = Data bit 4 = lcd_d4 = GPIO pin 25 
+LCD pin 12 = Data bit 5 = lcd_d5 = GPIO pin 24 
+LCD pin 13 = Data bit 6 = lcd_d6 = GPIO pin 23 
+LCD pin 14 = Data bit 7 = lcd_d7 = GPIO pin 18 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Planned future experimentation with the Pi: I really would like to try running 
+Forth on it…&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Aug 2014 22:24:00 -0700</pubDate>
+        <link>/chadtest.github.io/articles/14/raspberry-pi-fun-and-games</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/14/raspberry-pi-fun-and-games</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Holiday Electrical Successes and Failures</title>
+        <description>&lt;p&gt;As I’m rattling around the house the past few days recovering from a really 
+poorly-timed evil cold/cough, not feeling well enough to actually go out and 
+do anything but not so bad that I’m flat-out in bed, I figured I’d catch up on 
+some projects.&lt;/p&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;My DIY sous-vide setup.&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/sous-vide-setup.jpg&quot; /&gt;&lt;/figure&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;I got all the parts in before Christmas to do an add-on for Anna’s sous vide 
+cooker that I built a while back. Anna wanted the ability to do sous vide in a 
+smaller container, so we ordered a cheap hotplate, an aquarium pump, an 
+additional PT100 temperature sensor, and some spring clamps. In this add-on, 
+my existing PID controller box would be used to run the hot plate; when I 
+built the controller box, it was with the intent that it could be used to 
+control other things, so it has a 1/4 phono jack as the temperature sensor 
+input, and a couple of 120V wall outlets (one switched by the PID, the other 
+always on). The aquarium air pump will be used to bubble air in the sous vide 
+bath, to keep the heat even.&lt;/p&gt;
+
+&lt;p&gt;I soldered up the PT100 to a 1/4” stereo phono plug I had from the previous 
+sous vide, plugged everything in, and re-calibrated the PID to the new setup. 
+Looks like it will work great!&lt;/p&gt;
+
+&lt;p&gt;On to the next project.&lt;/p&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;The guts of the old Ikea transformer.&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/transformer.jpg&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;The Ikea halogen track lights in our office went out just before Christmas. I took 
+the power supply apart, and it’s just a rectifying transformer of the cheapest 
+sort - should be very easy to replace.&lt;/p&gt;
+
+&lt;p&gt;For curiosity’s sake, I broke open the case of the transformer. From the 
+photo, you can see that the circuit board is populated with through-hole 
+components, like you’d typically see in a DIY kit or something cooked up in my 
+garage – not seen in consumer electronics much since the early 1980s. Why? 
+Because building it this way depends on human labor, not machinery, and there 
+are still places in the world where that’s by far the cheapest way to do it.&lt;/p&gt;
+
+&lt;p&gt;Exploitation of workers aside, this box does a pretty straightforward job, 
+converting 120VAC into 12VDC, with some nice fringe benefits like turning on a 
+bit gently so as to not shock the poor halogen bulbs, and perhaps a safety 
+feature or two (like a tiny, non-replaceable fuse…)&lt;/p&gt;
+
+&lt;p&gt;Finding a replacement online was easy. Finding one that looked like it would 
+be a drop-in replacement, &lt;em&gt;and&lt;/em&gt; had at least a few reviews that didn’t read 
+like “DOA”, “worked for a week and then died”, “stay AWAY from this!” and the 
+like, proved harder. I settled on a power supply that seemed to have decent 
+reviews, and wasn’t the cheapest of the pile, and ordered away. (Power 
+supplies like this seem to run from about $10, to $60… a replacement Ikea 
+lamp is about $80. I opted for a ~$20 part.)&lt;/p&gt;
+
+&lt;p&gt;The power supply arrived today, and I was eager to alleviate the darkness that 
+has pervaded the office for a few weeks now. I wired it in to the lamp, and 
+fired it up.&lt;/p&gt;
+
+&lt;p&gt;Hm. Looks a bit… dim. Anna agrees.&lt;/p&gt;
+
+&lt;p&gt;#@$%&amp;amp;!&lt;/p&gt;
+
+&lt;p&gt;I fire up the ‘scope to see what the heck this thing’s putting out… and holy 
+moly, that’s an ugly waveform! But, it’s driving lamps, so it really shouldn’t 
+matter too much, as long as it’s about the right shape.&lt;/p&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;Zoomed in... not very clean.&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/transformer-scope-1.jpg&quot; /&gt;&lt;/figure&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;Zoomed out, it’s 
+still pretty ugly. But, sine-like. With some filtering to take out the HF 
+stuff...&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/transformer-scope-2.jpg&quot; /&gt;&lt;/figure&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;It doesn’t look too 
+bad. But check out the voltage -- this is why the lights were so dim!&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/transformer-scope-3.jpg&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;The new power supply is only supplying about 6V, peak-to-peak, running 5 x 20W 
+bulbs. It’s a 150W supply, so it should be OK with that load. I tried running 
+1 x 10W bulb, and it really didn’t care for that… not enough load I think. 
+Next, I tried 3 x 20W – and got pretty much the same as for 5 bulbs. Crumbs. 
+I’ll be sending it back, and now I have to find a different power supply and 
+throw the dice again.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 28 Dec 2013 18:31:00 -0800</pubDate>
+        <link>/chadtest.github.io/articles/13/holiday-electrical-successes-and</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/13/holiday-electrical-successes-and</guid>
+        
+        <category>electronics</category>
+        
+        <category>cooking</category>
+        
+        <category>repair</category>
+        
+        <category>projects</category>
+        
+        <category>sous vide</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Dear Sir</title>
+        <description>&lt;p&gt;Dear Sir,&lt;/p&gt;
+
+&lt;p&gt;I’m really sorry for not reacting more maturely to your nearly killing me with 
+your car.&lt;/p&gt;
+
+&lt;p&gt;I’m sure that you didn’t intentionally make a right turn into your driveway so 
+close to me that, had I not braked and swerved, I would surely have been 
+crushed under the wheels of your automobile. Probably my suggestion of a 
+creative but improbable use of your presumed anatomical features was uncalled 
+for, and for that I apologize. I was incited to this level of reaction by your 
+assertion that you “didn’t believe you came very close” and that “in the grand 
+scheme of things, it’s not that big a deal” to be nearly run over and killed. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Surely it wasn’t the cell phone on which you were talking at the time that 
+distracted you from seeing my incredibly bright taillight, my reflective 
+clothing, the electroluminescent wire festooning my bike’s frame, the two 
+glowing-green lights spinning in my bike’s wheels, and my 
+brighter-than-the-sun headlamp. And I recognize that it takes additional 
+coordination to both talk on the phone and use the turn signals (except you 
+didn’t seem to bother with that part) while managing to turn into your 
+driveway, all at the same time, without so much as colliding with anything 
+except, almost, with a cyclist.&lt;/p&gt;
+
+&lt;p&gt;So you’re quite right, Dear Sir, to respond to my calm inquiry as to what 
+possible reason you might have had for coming so close to running me over by 
+saying that you had nothing to say to me. That’s OK. I didn’t really expect 
+you to interrupt your important phone call (which you didn’t, anyway, while we 
+conversed in your driveway.)  I just wanted to share with you why I really had 
+been hoping for more, riding down the festively-lit street full of Christmas 
+cheer. It all looked so happy and full of the Christmas spirit - you know, 
+goodwill to all, tidings and cheer, neighborly.&lt;/p&gt;
+
+&lt;p&gt;But Dear Sir, I noticed, those festive lights belong to your neighbors, and 
+their neighbors, and really most all of the other houses in the neighborhood, 
+but not yours. I’m sure your importance (as evidenced by the need to be on the 
+phone at all times) precludes participating in the holiday spirit. Or perhaps, 
+you’ve been so beaten down by the ever-present holiday trappings of your 
+neighbors, since they have now been up for all of two days. So I will gladly 
+cut you some slack and assume that your blasé response to my query was just 
+because you were busy and not paying attention to anything around you, 
+including me on my bike.&lt;/p&gt;
+
+&lt;p&gt;After all, I ride by your house twice a day, every single workday. I’m sure 
+I’ll have lots of good chances to observe your progression into madness, 
+delusion, and self-loathing as the Christmas cheer merrily eats into your 
+brain.&lt;/p&gt;
+
+&lt;p&gt;I do hope you’ll accept my sincerest apologies for not having more patience, 
+and&lt;/p&gt;
+
+&lt;p&gt;Merry Christmas!&lt;/p&gt;
+
+&lt;p&gt;–chad&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 03 Dec 2013 19:52:00 -0800</pubDate>
+        <link>/chadtest.github.io/articles/13/dear-sir</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/13/dear-sir</guid>
+        
+        <category>rant</category>
+        
+        <category>idiots</category>
+        
+        <category>bike</category>
+        
+        <category>transportation</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Decline and Fall of the Cell Phone</title>
+        <description>&lt;p&gt;(Another post from the Wayback machine, found stuck in the blogpost “drafts” - 
+this from two years ago, around this time of year.)&lt;/p&gt;
+
+&lt;p&gt;My daughter was cleaning out some of her old toys and stuff (in anticipation, 
+I guess, of the forthcoming Christmas arrival of new toys and stuff) and 
+decided it was time to part with this.&lt;/p&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;Motorola’s Micro T.A.C. Lite&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/microtac.jpg&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;I gave her this old phone a few years ago; it had been sitting in my parts 
+bin, and I thought it would make a great “play phone” – and it did, until 
+this year it was outgrown and replaced with a desire for a &lt;em&gt;real&lt;/em&gt; cell phone 
+(no, Santa’s definitely not bringing a nine-year-old a cell phone for 
+Christmas…)&lt;/p&gt;
+
+&lt;p&gt;Looking at the phone, which represented the state-of-the-art when I bought it 
+back in the early 1990s, I found myself musing on what had happened to cell 
+phones since then.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This “&lt;a href=&quot;http://en.wikipedia.org/wiki/Motorola_MicroTAC&quot;&gt;Micro T.A.C. Lite Digital Personal 
+Communicator&lt;/a&gt;” was the first 
+of the “small” phones - small enough to stuff in a jeans pocket, or in a 
+purse. It was the lightest cell phone ever, at 7.7 oz. Prior to this, cell 
+phones were twice the size. It looks big &lt;strong&gt;now&lt;/strong&gt;, but this phone represented a 
+huge leap forward. The battery life was OK, but the phone was truly portable, 
+and broke new ground.&lt;/p&gt;
+
+&lt;p&gt;It was also tough, in a nearly-unbreakable way. My phone wasn’t treated with 
+kid gloves, and it still looks pretty much like new.&lt;/p&gt;
+
+&lt;p&gt;And, it was a good phone. It worked well. It &lt;strong&gt;felt&lt;/strong&gt; good - the materials had 
+a feeling of quality, it sat nicely in the hand, the distance from earpiece to 
+the end was sized to match the human head. It was the cellular, mobile analog 
+of the classic &lt;a href=&quot;http://en.wikipedia.org/wiki/Model_500_telephone&quot;&gt;Ma Bell desktop 
+phone&lt;/a&gt;, ubiquitous across 
+America for a couple of generations.&lt;/p&gt;
+
+&lt;p&gt;All of these things can also be said of the next phone I bought, also from 
+Motorola - the Star TAC. It, too, represented a big leap forward (or 
+downward?) in size and weight, and was still convenient to use in the hand; 
+somehow, Motorola kept the toughness of the Micro TAC, for the Star TAC felt 
+equally indestructible.&lt;/p&gt;
+
+&lt;p&gt;These phones were from the time when phones were just phones - they were 
+expected to do one thing well, and (mostly) they did, and kept doing it better 
+over time. They got smaller, their batteries lasted longer, but the basic 
+functionality (it’s a phone!) stayed the same.&lt;/p&gt;
+
+&lt;p&gt;Eventually, though, two things happened: consumers wanted (or, perhaps, 
+technology companies decided to sell to consumers) ever-smaller devices, and 
+phones took on more and more functionality. The very simple phonebook feature 
+of these early Motorolas led to addressbooks, simple games, a calculator, 
+text-messaging… a slippery slope. Soon enough, the fairly short list of 
+features that made a truly great phone (robustness, a bright, clear display, 
+good audio quality, long battery life, and a nice feel in the hand) was almost 
+entirely pushed aside in preference to miniaturization, sleekness, size and 
+color and quantity of the display(s), and number of secondary functions the 
+device could perform (games, music player, calendar, to-do list, etc.)&lt;/p&gt;
+
+&lt;p&gt;I think we are, in some cases, starting to drift back towards good 
+functionality of cell phones &lt;strong&gt;as&lt;/strong&gt; phones. But Motorola and Nokia, once the 
+dominant designers and manufacturers of truly good phones, seem to have fallen 
+by the wayside, casualties of the market’s whims. I don’t hear consumers 
+clamoring for fewer features in their phones, but perhaps a bit of recognition 
+that the absolute sleekest, thinnest, most-stylish phone is not necessarily 
+the most useful phone…&lt;/p&gt;
+
+&lt;p&gt;Anna says, this is the same thing that happened to toaster ovens (and, I 
+suspect, many many other appliances, and other consumer products.)&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 Dec 2013 18:59:00 -0800</pubDate>
+        <link>/chadtest.github.io/articles/13/the-decline-and-fall-of-cell-phone</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/13/the-decline-and-fall-of-cell-phone</guid>
+        
+        <category>technology</category>
+        
+        <category>design</category>
+        
+        <category>history</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Oh The Crushing Banality</title>
+        <description>&lt;p&gt;(I originally wrote this a couple years ago, and stumbled across the draft. 
+It’s still an accurate account; there’s been some improvement but not enough 
+to invalidate the observations.)&lt;/p&gt;
+
+&lt;p&gt;I’ve noticed a couple of trends at work lately, and they aren’t ones I like.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-fallacy-of-saving-cost-by-reducing-support-staff&quot;&gt;The Fallacy of Saving Cost by Reducing Support Staff&lt;/h2&gt;
+
+&lt;p&gt;As in so many companies and gov’t agencies, we’ve gradually reduced support staff to a bare minimum 
+over the last several decades. Where we once would have had several 
+secretaries and other administrative professionals supporting our 200-person 
+department, we have one. Where we once would have had a team of technical 
+writers and graphic arts professionals available as a resource, we have none. 
+The consequence of these “cost saving measures” has been to push secretarial 
+duties and assorted skills that normally demand considerable education and 
+experience, onto the technical staff.&lt;/p&gt;
+
+&lt;p&gt;The logic is dubious. &lt;!--more--&gt;Eliminating several lower-salary positions may save some 
+money in the short term, but the long-term effects are several and 
+significant:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;For starters, we now have the most highly-paid personnel in the 
+organization spending their time on trivia: filling out forms, tweaking the 
+format of documents to ensure compliance with various standards, trying (and, 
+for the most part, failing) to produce high-quality figures and graphics to 
+illustrate technical reports, navigating ever-more-obtuse systems for booking 
+travel, procuring supplies, tracking activities.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;One direct repercussion of imposing non-productive work on the technical 
+and managerial staff is a drop in morale, and difficulty in retention. Why put 
+up with the distractions? Even if the reality is that most other large 
+employers have followed the same flawed logic, the most competent staff are 
+also the most able to leave and find out just how green the grass is over at 
+the competition. The grass may in fact be just as brown as it is here, but the 
+staff are gone nonetheless.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The quality and quantity of &lt;strong&gt;useful&lt;/strong&gt; work produced by the staff will 
+assuredly decrease. When I look at the technical publications we produced 30 
+years ago, I am stunned by the quality of the writing, the readability of the 
+figures, and the consistency of the production. Most of all I am impressed 
+with the depth of thought and the care put into the report by the author(s). 
+It is clear that they had the uninterrupted blocks of time required to think 
+deeply about their subject, analyze their data, and with due consideration, 
+craft what they wanted to say into a cogent text.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This has been a long-term trend, evolving into the present state over a period 
+of decades. Those joining the workforce in the past 20-odd years might simply 
+view this as what is expected; older workers, or those who spent part of their 
+careers in “enlightened” companies, may have seen how it once was.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-fallacy-of-remote-support&quot;&gt;The Fallacy of Remote Support&lt;/h2&gt;
+
+&lt;p&gt;As a consequence of the above support 
+personnel reductions, managers decided to rely on technology to improve 
+efficiency of the remaining staff. This took the form of web applications for 
+things like timecard entry, vacation requests, and booking travel. Aside from 
+the lowest-bidder user interfaces and other egregious affronts to the poor 
+users (such as separate password for each application, all expiring on 
+different schedules and with complex but inconsistent rules about what 
+constitutes a valid password) this approach also served to further separate 
+the staff from &lt;strong&gt;actually getting things done&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In some cases, the ways the new applications worked changed almost 
+continuously; it bacame obvious that the staff would pretty quickly have to 
+spend &lt;strong&gt;all&lt;/strong&gt; of their time just learning how to navigate the tools!  Where 
+the staff could once muddle through and either learn how to navigate the 
+processes themselves, or beg the few remaining support staff to help them out, 
+there was now hired a new cadre of low-level contracted personnel, dedicated 
+to be intermediaries between the technical and managerial staff and the new 
+business applications. However, rather than being co-located with the people 
+they support, and therefore both cognizant of the unique requirements of those 
+particular people and accessible (and responsible) to them, the new group was 
+located &lt;strong&gt;together&lt;/strong&gt;, removed from any direct relationship with those they 
+were ostensibly to support. The resulting level of service, as you might 
+imagine, was not perceived to be high.&lt;/p&gt;
+
+&lt;p&gt;Further, because of this distancing of the support staff from those they 
+support, a new pressure on the supported personnel emerged: the support staff 
+was getting bogged down by requests and data that didn’t follow procedure, 
+necessitating considerable back-and-forth with their “customers” to clarify. 
+Arguing for improved efficiency, they developed complex procedural 
+instructions and provided them for their customers to follow.&lt;/p&gt;
+
+&lt;p&gt;Never mind that the published procedures were almost always inconsistent with 
+actual practice; the customers were now somehow expected to follow the 
+&lt;strong&gt;undocumented&lt;/strong&gt; procedure, and the support staff was not likely to pick up 
+the slack. This sorry state resulted in ever-more-ludicrous situations, such 
+as one I had the misfortune to encounter today: having duly submitted the six 
+(six!) pieces of documentation requested by a published procedure two pages 
+long, I has an email exchange that went something along these lines:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Support&lt;/em&gt;: Thank you for sending your request, you’re missing five of the 
+required items and I can’t process this until I have them all.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Me&lt;/em&gt;:  If you look again, you’ll see that you are in fact in receipt of three 
+of the five items in question; the fourth was ambiguously stated in the 
+procedure, but here it is (attached.) The fifth wasn’t mentioned at all in the 
+procedure, but here you go. (attached.)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Support&lt;/em&gt;: Thank you, please take the information you sent in items 2 &amp;amp; 5 
+and use it to fill out these Word templates, attached. I can’t process any of 
+this until you’ve done that.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Me&lt;/em&gt;: Arrrrrrrgh! (Pounds keyboard in abject frustration.)&lt;/p&gt;
+
+&lt;p&gt;Now mind you: they could have provided the templates &lt;strong&gt;in the published 
+process&lt;/strong&gt; but didn’t. They had all the information needed to fill out the 
+templates, but didn’t. The total amount of time spent reading the process, 
+interpreting the poorly-written requirements stipulated by the process, 
+generating the documents to respond in accordance with the process, and then 
+negotiating what was really required with the “support” staff was completely 
+out of whack with what should reasonably have transpired, which should have 
+gone something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Me&lt;/em&gt;: Hello, I need to do [blah], what information do you need from me?&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Support&lt;/em&gt;: OK, we need these four items; you can email me the information.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Me&lt;/em&gt;: Great, thanks, here they are (attached.)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Support&lt;/em&gt;: Got it, we’ll have this ready for you by noon three days from now. 
+We’ll give you a call if there are any questions, but it looks like everything 
+we need is here.&lt;/p&gt;
+
+&lt;p&gt;Even better if the support person actually &lt;strong&gt;knew who I was&lt;/strong&gt;, and thus 
+whether my request carried any particular extra weight or urgency (does Chad 
+ask for this a lot? Is it always approved by the boss? Or does he frequently 
+make requests only to cancel them shortly thereafter, or have them declined?) 
+And to improve upon that, what if I knew the support person, and what their 
+workload might be at any particular time? The exchange would be more 
+productive and satisfying for all involved. But with the support staff at a 
+distance, both physically and psychically, there seems to be little incentive, 
+let alone mechanism, to establish such a useful relationship. It quickly 
+devolves to “us” and “them”.&lt;/p&gt;
+
+&lt;p&gt;This has been a shorter-term trend, but its influence on daily worklife seems 
+to be profound. Staff’s ability to &lt;strong&gt;get things done&lt;/strong&gt; has been curtailed in a 
+fundamental way, with incomprehensible barriers erected for no coherent 
+reason. I have rarely heard such dissatisfaction from people otherwise happily 
+engaged in meaningful and productive work – I believe it is because the 
+roadblocks are now so frequent, and so complete, that their impact cannot be 
+subsumed to the more enjoyable aspects of the workday.&lt;/p&gt;
+
+&lt;p&gt;I don’t know if this is cropping up at other workplaces, or if it has been 
+prevalent for years and I’m just now seeing it in my own workplace; I’d be 
+very curious to hear from others what their experiences have been.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 03 Dec 2013 18:56:00 -0800</pubDate>
+        <link>/chadtest.github.io/articles/13/oh-crushing-banality</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/13/oh-crushing-banality</guid>
+        
+        <category>rant</category>
+        
+        <category>work</category>
+        
+        <category>culture</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>An interesting comparison</title>
+        <description>&lt;p&gt;A friend sent me &lt;a href=&quot;http://www.nytimes.com/2011/09/06/science/06accident.html?_r=1&amp;amp;scp=1&amp;amp;sq=la%20honda%20bicycle%20crash&amp;amp;st=cse&quot;&gt;an article in the New York Times&lt;/a&gt;, in which the author uses the data from his GPS bike computer to fill in the gaps in his memory following a crash. The Times’ illustrator Johnathan Corum created an infographic depicting the rider’s route, and the data from the bike computer. It’s a nice figure, but it’s gratuitously similar to the classic Minard depiction of Napoleon’s 1918 march to Moscow (often cited as one of the best infographics ever, and &lt;a href=&quot;http://www.edwardtufte.com/tufte/posters&quot;&gt;available as a poster from Edward Tufte&lt;/a&gt;.) 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;From article by Jonathan Corum/The New York Times; an infographic of John Markoff's bicycle crash.&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/06accident.jpg&quot; /&gt;&lt;/figure&gt;
+
+&lt;figure&gt;&lt;figcaption&gt;Minard's infographic of Napoleon's march to Moscow.&lt;/figcaption&gt;&lt;img src=&quot;/chadtest.github.io/assets/img/poster_OrigMinard.png&quot; /&gt;&lt;/figure&gt;
+
+&lt;p&gt;While I like Corum’s inforgraphic, it doesn’t really hold a candle to Minard’s in terms of how the information is conveyed. Minard has layered the size of Napoleon’s army &lt;em&gt;over&lt;/em&gt; its route into, and retreat from, Russia; and correlated  their position (and thus diminishing strength) with the temperature. Corum’s figure, however, manages only the latter technique, and while it captures the aesthetic of Minard’s canonical work, it lacks the compelling ingenuity of synthesis.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 10 Sep 2011 18:49:00 -0700</pubDate>
+        <link>/chadtest.github.io/articles/11/interesting-comparison</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/11/interesting-comparison</guid>
+        
+        <category>design</category>
+        
+        <category>visualization</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Suffering for the cause</title>
+        <description>&lt;p&gt;Last week, the Amgen Tour of California bike race came through town. Last 
+year, we went to watch the local stage, and despite the rain/drizzle/general 
+wetness, had a fun time hanging out with friends and new acquaintances on the 
+side of the road. We had such a fine time, in fact, that we figured we just 
+&lt;em&gt;had&lt;/em&gt; to do it again this year. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Besides, the route was heading over one of our very favorite local mountain 
+roads - Mt. Hamilton - so we’d have a great excuse get a nice ride in, to go 
+up the hill and check out the race. By the day of the event, however, the 
+crummy weather that had caused the cancellation of the first stage of the tour 
+was making a reprise; despite the forecast of a nice afternoon it was looking 
+quite dark and slightly damp.&lt;/p&gt;
+
+&lt;p&gt;To top it off, I had come down with a bronchial cough and lethargy-inducing 
+cold. My body said I should stay in bed, although my heart really wanted to 
+get outside and enjoy the day. What to do, what to do…&lt;/p&gt;
+
+&lt;p&gt;My compromise: do both! I slept for a couple hours after breakfast, then 
+roused myself enough to get my bike clothes on and get going. Anna packed up a 
+thermos of hot tea and some lunch items, and off we went.&lt;/p&gt;
+
+&lt;p&gt;We saw a few people on bikes as we pedaled up Mt. Hamilton, but most of them 
+were coming &lt;em&gt;down&lt;/em&gt; the hill. 39 F and wet at the top, one of them reported. 
+Some of the riders had ridden up from our side of the hill, and then came back 
+down when the conditions turned raw. Others had started early, and were riding 
+the whole race route ahead of the peloton. Later, while we were having lunch, 
+I spotted former pro Chris Carmichael riding with a group.&lt;/p&gt;
+
+&lt;p&gt;I certainly didn’t set any records going up the hill. We sort of doddered 
+along at a speed that allowed my congested lungs to keep working, but it was 
+tough to let everyone pass… I did my best to just smile and wave. We called 
+a halt at Joe Grant park, maybe a third of the way up the climb and a nice 
+open spot to watch the race.&lt;/p&gt;
+
+&lt;p&gt;We hung out for a while and enjoyed our lunch – Anna had packed quite the 
+gourmet picnic. The light that filtered through the thick but broken clouds 
+was dramatic, and we enjoyed hanging out, talking with the other 
+race-watchers, and watching the hawks ride the winds.&lt;/p&gt;
+
+&lt;p&gt;Finally the race came through, dramatic as a big group of riders always seems 
+to be. It took a while, as the peloton was shattered after the big climb on 
+the back side of the mountain. Eventually, all the riders and associated 
+vehicles cleared out, and we packed up and headed back down the hill.&lt;/p&gt;
+
+&lt;p&gt;There was a small group of locals having a BBQ just a half mile down the road 
+from the park; they were having a fine time standing at the side of the road, 
+drinking a few cans of beer and watching the goings-on. I called out for a 
+hand-up as I cruised by, and got a can enthusiastically (and quite 
+competently) passed over. To their great cheers, I had a mighty swig and 
+hopefully gave them something fun to add to their bike-race experience!&lt;/p&gt;
+
+&lt;p&gt;The ride back down the hill was (as always) great fun - we caught up to one 
+guy, and he trailed me most of the way down the hill. The wind was gusting, 
+and the pack on my back I brought to carry the extra layers I needed to sit 
+around at lunch, was catching the crosswind, making the corners extra 
+challenging. I overcooked one tricky corner a bit, but recovered it, and had a 
+fine, fast run to the bottom.&lt;/p&gt;
+
+&lt;p&gt;We watched the TV coverage of the race later, and I was surprised to see a 
+bunch of the pros have problems with that very same corner - several guys went 
+right off the road there! So I didn’t feel quite such the fool for having 
+misjudged it myself.&lt;/p&gt;
+
+&lt;p&gt;It’s a week later, and I haven’t hardly been on the bike since; my cough is 
+still with me. But I’m sure glad I got out there and suffered enough to see 
+the race.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 24 May 2011 22:27:00 -0700</pubDate>
+        <link>/chadtest.github.io/articles/11/suffering-for-cause</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/11/suffering-for-cause</guid>
+        
+        <category>bike</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Ethics and Intelligent Systems</title>
+        <description>&lt;p&gt;This isn’t by any means a new topic; Asimov codified it in his famous &lt;a href=&quot;http://en.wikipedia.org/wiki/Three_Laws_of_Robotics&quot;&gt;Three 
+Laws&lt;/a&gt; back in 1942; and 
+Wired ran &lt;a href=&quot;http://www.wired.com/wired/archive/13.01/view.html&quot;&gt;an article&lt;/a&gt; in 
+2005 that considered some of the broader ethical implications of introducing 
+ever-more-humanoid machines into society. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;There now seems to be a burgeoning discussion on this topic, spread widely.&lt;/p&gt;
+
+&lt;p&gt;Illah Nourbakhsh’s lecture (below) has spawned a &lt;a href=&quot;http://ethic0sandrobotics.posterous.com&quot;&gt;CMU class&lt;/a&gt;; &lt;a href=&quot;http://cyberlaw.stanford.edu/node/6571&quot;&gt;Patrick Lin&lt;/a&gt; (along with George Bekey and others) at Cal Poly SLO’s &lt;a href=&quot;http://ethics.calpoly.edu/&quot;&gt;Ethics + Emerging Technology Group&lt;/a&gt; have authored several good papers, with some intro and discussion at the &lt;a href=&quot;http://cyberlaw.stanford.edu/node/6625&quot;&gt;Stanford Law Center for Internet and Society&lt;/a&gt;.  There are several interesting blogs covering this area, such as &lt;a href=&quot;http://moralmachines.blogspot.com/&quot;&gt;moral machines&lt;/a&gt;.&lt;/p&gt;
+
+&lt;iframe title=&quot;YouTube video player&quot; width=&quot;320&quot; height=&quot;195&quot; src=&quot;http://www.youtube.com/embed/giKT8PkCCv4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Mon, 25 Apr 2011 15:28:00 -0700</pubDate>
+        <link>/chadtest.github.io/articles/11/ethics-and-intelligent-systems</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/11/ethics-and-intelligent-systems</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>How far we've fallen...</title>
+        <description>&lt;p&gt;The cycling spirit was certainly in fine fettle in Great Britain, circa 1955, 
+as seen in these wonderful video clips. Beer en route! Bike cars on the train! 
+Check out the nifty bikes, not to mention the fun clothes… 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Part 1:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/qyz5d3entBw&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Part 2:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/WGYngjxJP1I&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Mon, 26 Apr 2010 23:34:00 -0700</pubDate>
+        <link>/chadtest.github.io/articles/10/how-far-weve-fallen</link>
+        <guid isPermaLink="true">/chadtest.github.io/articles/10/how-far-weve-fallen</guid>
+        
+        <category>touring</category>
+        
+        <category>history</category>
+        
+        <category>bikes</category>
+        
+        <category>culture</category>
+        
+        <category>travel</category>
+        
+        <category>transportation</category>
+        
+        
+      </item>
+    
   </channel>
 </rss>

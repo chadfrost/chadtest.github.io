@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fighting with FTP</title>
+  <meta name="description" content="Some things should just be easier than they are…Anna has a bunch of GigaPan images she created, and wants to get them to the museum to be printed out giganto...">
+
+  <!-- Google Fonts loaded here depending on setting in _data/options.yml true loads font, blank does not-->
+  
+    <link href='//fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+  
+  
+  <!-- Load up MathJax script if needed ... specify in /_data/options.yml file-->
+  
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+  <link rel="stylesheet" type="text/css" href="/chadtest.github.io/css/tufte.css">
+  <!-- <link rel="stylesheet" type="text/css" href="/chadtest.github.io/css/print.css" media="print"> -->
+
+  <link rel="canonical" href="/chadtest.github.io/articles/09/fighting-with-ftp">
+
+  <link rel="alternate" type="application/rss+xml" title="Chad's Occasional Blog" href="/chadtest.github.io/feed.xml" />
+</head>
+
+  <body>
+    <!--- Header and nav template site-wide -->
+<header>
+    <nav class="group">
+	<a href="/chadtest.github.io/"><img class="badge" src="/chadtest.github.io/assets/img/badge_1.png" alt="CH"></a>
+
+	
+		
+  	
+		
+      
+		    
+          <a href="/chadtest.github.io/">Blog</a>
+		    
+	    
+    
+  	
+		
+      
+		    
+          <a href="/chadtest.github.io/about/">About</a>
+		    
+	    
+    
+  	
+		
+      
+		    
+          <a href="/chadtest.github.io/css/print.css"></a>
+		    
+	    
+    
+  	
+		
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+		
+      
+    
+  	
+	</nav>
+</header>
+
+    <article class="group">
+      <h1>Fighting with FTP</h1>
+<p class="subtitle">April 8, 2009</p>
+
+<p>Some things should just be easier than they are…</p>
+
+<p>Anna has a bunch of GigaPan images she created, and wants to get them to the 
+museum to be printed out giganto-size for the upcoming open house. Well, 
+GigaPans are aptly named – each one is 2-3GB in size! Putting ‘em on a flash 
+drive just isn’t practical; only a couple will fit on a DVD; and I didn’t have 
+an extra USB hard drive ready to go.</p>
+
+<p>No problem, I thought – my nifty new network attached storage (NAS) has a FTP 
+server built in to it! I can just fire that up, and we’ll be off to the races. 
+Yeah, right. 
+<!--more--></p>
+
+<p>Step 1: turn on FTP server. This part <em>was</em> easy!</p>
+
+<p>Step 2: check that it works. OK, slightly more complicated: the NAS sits on my 
+local network, so the router has to be configured to direct incoming FTP 
+requests to the NAS. Testing that it works means connecting to a remote 
+server, then trying to connect back from there. No big deal, except it doesn’t 
+work – until, after 30 min, it does. Grrr.</p>
+
+<p>Step 3: put the gigapan files on the server. The files are on Anna’s work 
+laptop, which has wireless access – yeah, it will take all night to transfer 
+the files because I still only have 802.11b, but there’s time. Oops, forgot 
+we’re dealing with a <em>windows</em> laptop here… it drops the connection after 
+the 4th file. Doh! Yes, I should have plugged it in to the network, but all 
+the ports on my switch are being used and this just seemed… easier.</p>
+
+<p>Step 3a: find a HD to get the files off the laptop: Three of three that I have 
+at home are formatted for Mac… only the third one has contents disposable 
+enough to warrant re-formatting. But at least with the files copied off onto 
+the HD, if this little FTP experiment fails utterly, there’s a reasonable Plan 
+B.</p>
+
+<p>Step 3b: copy files from HD onto NAS: should be straightforward, but while 
+doing this I notice that web browsers are having a hard time connecting to the 
+FTP server. Much pondering and testing ensues… Using a browser (Firefox, 
+Safari, Explorer) works fine on the internal network, but hangs ungracefully 
+if the connection is from the outside. Regular ‘ol FTP clients work fine, 
+regardless. A clue is that Lynx (a text-only browser) works where the others 
+fail.</p>
+
+<p>Step 4: What is wrong with the browsers?!?! A digression, but it was a real 
+stumper. Turns out all the failing browsers prefer “passive” FTP, which 
+appears to be problematic in my particular configuration of routers and 
+devices and FTP server. Explorer can be made to default to “active” FTP 
+connections, but Firefox is just stuck unless a plug-in is installed. At least 
+the problem is known/understood (if not readily fixable) so off to the next 
+step…</p>
+
+<p>Step 5: Write &amp; test foolproof instructions for Windows command-line ftp. 
+Annoying, but this just reinforces the superiority of the command line, as far 
+as I’m concerned. I hope the folks on the other end are successful in 
+retrieving the files!</p>
+
+<p>This whole thing really should have taken 30min, tops… instead, I bet it 
+took 6 hours – 4 last night, and a couple more this morning – before it was 
+all done.</p>
+
+
+<p>
+<a rel="prev" href="/chadtest.github.io">&laquo; Newer</a>  <a rel="next" href="/chadtest.github.io">Next &raquo;</a>
+</p>
+    </article>
+    <span class="print-footer">Fighting with FTP - April 8, 2009 - chad r. frost</span>
+    <footer>
+  <hr class="slender">
+  <ul class="footer-links">
+    <li><a href="mailto:hate@spam.net"><span class="icon-mail"></span></a></li>    
+    
+      <li>
+        <a href="//www.twitter.com/bikeboy"><span class="icon-twitter"></span></a>
+      </li>
+    
+      <li>
+        <a href="//github.com/chadfrost"><span class="icon-github"></span></a>
+      </li>
+    
+      <li>
+        <a href="//instagram.com/bikeboychad"><span class="icon-instagram"></span></a>
+      </li>
+    
+      <li>
+        <a href="//www.linkedin.com/in/chad-frost-039a12/"><span class="icon-linkedin"></span></a>
+      </li>
+    
+      <li>
+        <a href="/feed.xml"><span class="icon-feed"></span></a>
+      </li>
+      
+  </ul>
+<div class="credits">
+<span>&copy; 2020 &nbsp;&nbsp;CHAD R. FROST</span></br> <br>
+<span>This site created with the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme for Content-centric blogging </a> in <a href="//jekyllrb.com">Jekyll</a>.</span> 
+</div>  
+</footer>
+  </body>
+</html>
